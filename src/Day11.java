@@ -11,13 +11,40 @@ public class Day11 {
             for(int j=0; j<col; j++){
                 count++;
                 twoD[i][j]=count;
-                System.out.print(twoD[i][j]);
             }
             System.out.println();
-
         }
 
+
     }
+    public static void checkIf(){
+     Scanner sc = new Scanner(System.in);
+     int[][]arr= new int[6][6];
+     for (int i=0; i<6; i++){
+         for(int j=0; j<6; j++){
+             arr[i][j]=sc.nextInt();
+         }
+     }
+        int[]ar= new int[16];
+        int count=0;
+        for(int i=0;i<4;i++){
+            for(int j=0; j<4; j++){
+
+                ar[count++]= arr[i][j]+arr[i][j+1]+arr[i][j+2]
+                        +arr[i+1][j+1]
+                        +arr[i+2][j]+arr[i+2][j+1]+arr[i+2][j+2];
+            }
+        }
+
+        int com=ar[0];
+        for(int check:ar ){
+            if(check>com){
+                com=check;
+            }
+            System.out.println(com);
+        }
+    }
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
